@@ -703,6 +703,9 @@ class TcpConnection extends ConnectionInterface
                 }
             }
             if ($this->_status === self::STATUS_CLOSING) {
+                if ($this->__streamSending) {
+                    return true;
+                }
                 $this->destroy();
             }
             return true;
