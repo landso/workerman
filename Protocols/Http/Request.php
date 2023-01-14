@@ -311,7 +311,7 @@ class Request
      */
     public function rawHead()
     {
-        if (!isset($this->_data['head'])) {
+        if (empty($this->_data['head'])) {
             $this->_data['head'] = \strstr($this->_buffer, "\r\n\r\n", true);
         }
         return $this->_data['head'];
